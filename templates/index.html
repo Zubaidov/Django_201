@@ -4,14 +4,24 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>{% block title %}Home{% endblock %}</title>
+    <title>{% block title %}Home{% endblock title %}</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="" />
   </head>
   <body>
     {% block body %}
-    <h1>Here is a Home PAge</h1>
+      {% for post in posts%}
+        <div class="max-w-4xl px-10 my-4 py-6 bg-white rounded-lg shadow-md">
+          <div class="flex justify-between items-center">
+            <span class="font-light text-gray-700">{{post.date}}</span>
+            <a class="px-2 py-1 bg-gray-600 text-gray-100 font-bold rounded hover:bg-gray-500" href="#">Read More</a>
+          </div>
+          <div class="mt-2">
+            <a class="text-2xl text-gray-700 font-bold rounded hover:text-gray-600" href="#">{{post.title}}</a>
+          </div>
+        </div>
+      {% endfor %}
     {% endblock %}
     <script src="" async defer></script>
   </body>
